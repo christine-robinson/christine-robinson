@@ -1,3 +1,12 @@
-export default function Home() {
-  return <h1>Home</h1>;
+import { JSX } from 'react';
+import { Navbar } from '@/components';
+import { HeroSection } from '@/sections';
+
+export default function Home(): JSX.Element {
+  return (
+    <>
+      <Navbar />
+      <HeroSection />
+    </>
+  );
 }

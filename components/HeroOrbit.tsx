@@ -1,6 +1,5 @@
 import { JSX } from 'react';
-import StarIcon from '@/assets/icons/star.svg';
-import SparkleIcon from '@/assets/icons/sparkle.svg';
+import { StarIcon, SparkleIcon } from '@/components/icons';
 
 const HeroOrbit = (): JSX.Element => {
   return (

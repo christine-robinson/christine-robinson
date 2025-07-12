@@ -1,8 +1,8 @@
 import { JSX } from 'react';
 import Image from 'next/image';
 import memojiImage from '@/assets/images/memoji-computer.png';
-import ArrowDownIcon from '@/assets/icons/arrow-down.svg';
-import HeroOrbit from '@/components/HeroOrbit';
+import { ArrowDownIcon } from '@/components/icons';
+import { HeroOrbit } from '@/components';
 
 const HeroSection = (): JSX.Element => {
   return (

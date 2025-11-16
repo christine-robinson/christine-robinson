@@ -1,0 +1,21 @@
+name: Manual Workflow Dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      example-input:
+        description: 'An example input parameter'
+        required: false
+        default: 'default-value'
+
+jobs:
+  run-manual-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run a sample step
+        run: |
+          echo "Workflow dispatched manually!"
+          echo "example-input: ${{ github.event.inputs.example-input }}"

@@ -7,6 +7,7 @@ const inter: NextFontWithVariable = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
 });
+
 const calistoga: NextFontWithVariable = Calistoga({
   subsets: ['latin'],
   variable: '--font-serif',

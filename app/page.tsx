@@ -1,10 +1,22 @@
 import { JSX } from 'react';
-import { HeroSection } from '@/sections';
+import { Navbar } from '@/components';
+import {
+  AboutSection,
+  HeroSection,
+  ProjectSection,
+  TapeSection,
+  TestimonialsSection,
+} from '@/sections';
 
 const Home = (): JSX.Element => {
   return (
     <>
+      <Navbar />
       <HeroSection />
+      <ProjectSection />
+      <TapeSection />
+      <TestimonialsSection />
+      <AboutSection />
     </>
   );
 };

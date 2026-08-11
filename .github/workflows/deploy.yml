@@ -2,12 +2,8 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
-
-concurrency:
-  group: deploy-${{ github.ref }}
-  cancel-in-progress: true
+    branches:
+      - main
 
 jobs:
   build:
@@ -31,7 +27,7 @@ jobs:
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: site
+          name: artifact
           path: dist
           retention-days: 1
 
@@ -42,30 +38,22 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: site
-          path: site
+          name: artifact
+          path: dist
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: ${{ vars.AWS_REGION }}
 
       - name: Sync to S3
         run: |
-          aws s3 sync ./site "s3://${{ secrets.AWS_S3_BUCKET }}" \
-            --delete \
-            --cache-control "public,max-age=31536000,immutable" \
-            --exclude "*.html"
-          aws s3 sync ./site "s3://${{ secrets.AWS_S3_BUCKET }}" \
-            --delete \
-            --cache-control "public,max-age=0,must-revalidate" \
-            --exclude "*" \
-            --include "*.html"
+          aws s3 sync ./dist "s3://${{ vars.AWS_S3_BUCKET }}" --delete
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
-            --distribution-id "${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}" \
+            --distribution-id "${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}" \
             --paths "/*"

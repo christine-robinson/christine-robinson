@@ -7,9 +7,11 @@ export function TerminalPanel() {
         <span className="size-2 rounded-full bg-destructive/70" aria-hidden="true" />
         <span className="size-2 rounded-full bg-warning/70" aria-hidden="true" />
         <span className="size-2 rounded-full bg-success/70" aria-hidden="true" />
-        <span className="ml-2 font-mono text-[11px] text-muted-foreground">zsh — example session</span>
+        <span className="ml-2 font-mono type-badge text-muted-foreground">
+          zsh — example session
+        </span>
       </div>
-      <div className="space-y-3 p-4 font-mono text-[12.5px] leading-relaxed">
+      <div className="space-y-3 p-4 font-mono text-xs leading-relaxed">
         {terminalBlocks.map((block) => (
           <div key={block.command} className="space-y-1">
             <p className="text-foreground">
@@ -24,7 +26,7 @@ export function TerminalPanel() {
           </div>
         ))}
       </div>
-      <p className="border-t border-border px-4 py-2 font-mono text-[10px] text-muted-foreground">
+      <p className="border-t border-border px-4 py-2 font-mono type-micro text-muted-foreground">
         Illustrative output — shown as interface, not live cluster data.
       </p>
     </div>

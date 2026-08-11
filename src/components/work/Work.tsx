@@ -12,11 +12,11 @@ function FlowChain({ steps }: { steps: string[] }) {
     <div className="flex flex-wrap items-center gap-1.5">
       {steps.map((step, i) => (
         <span key={step + i} className="flex items-center gap-1.5">
-          <span className="rounded border border-primary/30 bg-primary/5 px-2 py-1 font-mono text-[10.5px] text-primary">
+          <span className="rounded border border-primary/30 bg-primary/5 px-2 py-1 font-mono type-badge text-primary">
             {step}
           </span>
           {i < steps.length - 1 ? (
-            <span aria-hidden="true" className="font-mono text-[10px] text-muted-foreground">
+            <span aria-hidden="true" className="font-mono type-micro text-muted-foreground">
               →
             </span>
           ) : null}
@@ -30,7 +30,7 @@ function Details({ study }: { study: CaseStudy }) {
   return (
     <div className="mt-5 space-y-5 rounded-md border border-border bg-background/50 p-4">
       <div>
-        <p className="font-mono text-[11px] tracking-[0.16em] text-muted-foreground">Architecture</p>
+        <p className="font-mono type-label text-muted-foreground">Architecture</p>
         <ol className="mt-3 space-y-2">
           {study.architecture.map((node, i) => (
             <li key={node.label} className="flex gap-3">
@@ -55,9 +55,7 @@ function Details({ study }: { study: CaseStudy }) {
         <div className="space-y-3">
           {study.flows.map((flow) => (
             <div key={flow.title}>
-              <p className="font-mono text-[10.5px] tracking-[0.16em] text-muted-foreground">
-                {flow.title}
-              </p>
+              <p className="font-mono type-label text-muted-foreground">{flow.title}</p>
               <div className="mt-2">
                 <FlowChain steps={flow.steps} />
               </div>
@@ -67,11 +65,14 @@ function Details({ study }: { study: CaseStudy }) {
       ) : null}
 
       <div>
-        <p className="font-mono text-[11px] tracking-[0.16em] text-violet">Engineering decisions</p>
+        <p className="font-mono type-label text-violet">Engineering decisions</p>
         <ul className="mt-2.5 space-y-1.5">
           {study.decisions.map((d) => (
             <li key={d} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground">
-              <span className="mt-1.5 size-1 shrink-0 rounded-full bg-violet/70" aria-hidden="true" />
+              <span
+                className="mt-1.5 size-1 shrink-0 rounded-full bg-violet/70"
+                aria-hidden="true"
+              />
               {d}
             </li>
           ))}
@@ -79,7 +80,7 @@ function Details({ study }: { study: CaseStudy }) {
       </div>
 
       <div>
-        <p className="font-mono text-[11px] tracking-[0.16em] text-success">Outcome</p>
+        <p className="font-mono type-label text-success">Outcome</p>
         <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{study.outcome}</p>
       </div>
     </div>
@@ -94,7 +95,7 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
     <Reveal delay={index * 0.06} className="h-full">
       <TiltCard className="h-full" intensity={4}>
         <article className="panel flex h-full flex-col p-6 transition-colors hover:border-primary/40">
-          <p className="font-mono text-[11px] text-muted-foreground">
+          <p className="font-mono type-badge text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </p>
           <h3 className="mt-2 text-lg font-semibold tracking-tight">{study.title}</h3>
@@ -102,11 +103,11 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
 
           <dl className="mt-5 space-y-3 text-sm">
             <div>
-              <dt className="font-mono text-[11px] tracking-[0.16em] text-violet">Problem</dt>
+              <dt className="font-mono type-label text-violet">Problem</dt>
               <dd className="mt-1 leading-relaxed text-muted-foreground">{study.problem}</dd>
             </div>
             <div>
-              <dt className="font-mono text-[11px] tracking-[0.16em] text-primary">Approach</dt>
+              <dt className="font-mono type-label text-primary">Approach</dt>
               <dd className="mt-1 leading-relaxed text-muted-foreground">{study.approach}</dd>
             </div>
           </dl>
@@ -115,7 +116,7 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
             {study.technologies.map((tech) => (
               <span
                 key={tech}
-                className="rounded border border-border/70 bg-surface-2/50 px-2 py-1 font-mono text-[10.5px] text-muted-foreground"
+                className="rounded border border-border/70 bg-surface-2/50 px-2 py-1 font-mono type-badge text-muted-foreground"
               >
                 {tech}
               </span>
@@ -164,7 +165,7 @@ export function Work() {
       <SectionHeading
         index="04"
         eyebrow="Selected Engineering Work"
-        title="Case studies from production infrastructure."
+        title="Case Studies from Production Infrastructure."
         description="Engineering case studies based on infrastructure, DevOps and cloud work — the problem, the approach taken, and how the system was put together."
       />
 

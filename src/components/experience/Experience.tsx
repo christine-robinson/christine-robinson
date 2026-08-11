@@ -9,7 +9,7 @@ export function Experience() {
       <SectionHeading
         index="02"
         eyebrow="Experience"
-        title="Three years of production infrastructure work."
+        title="Three Years of Production Infrastructure Work."
         description="Roles, scope and the engineering areas each one covered."
       />
 
@@ -38,14 +38,14 @@ export function Experience() {
                       </span>
                     </p>
                   </div>
-                  <span className="rounded-md border border-border bg-surface-2/60 px-2.5 py-1 font-mono text-[11px] text-muted-foreground">
+                  <span className="rounded-md border border-border bg-surface-2/60 px-2.5 py-1 font-mono type-badge text-muted-foreground">
                     {role.period}
                   </span>
                 </header>
 
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{role.summary}</p>
 
-                <h4 className="mt-6 font-mono text-[11px] tracking-[0.16em] text-primary">Impact</h4>
+                <h4 className="mt-6 font-mono type-label text-primary">Impact</h4>
                 <ul className="mt-2.5 space-y-2">
                   {role.impact.map((item) => (
                     <li
@@ -61,14 +61,12 @@ export function Experience() {
                   ))}
                 </ul>
 
-                <h4 className="mt-6 font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
-                  Technology
-                </h4>
+                <h4 className="mt-6 font-mono type-label text-muted-foreground">Technology</h4>
                 <div className="mt-2.5 flex flex-wrap gap-1.5">
                   {role.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded border border-border/70 bg-surface-2/50 px-2 py-1 font-mono text-[10.5px] text-muted-foreground"
+                      className="rounded border border-border/70 bg-surface-2/50 px-2 py-1 font-mono type-badge text-muted-foreground"
                     >
                       {tech}
                     </span>

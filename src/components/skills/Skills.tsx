@@ -30,7 +30,7 @@ export function Skills() {
       <SectionHeading
         index="03"
         eyebrow="Skills"
-        title="The stack I build and operate with."
+        title="The Stack I Build and Operate With."
         description="A working ecosystem of tools — cloud, orchestration, automation, delivery, observability and security."
       />
 
@@ -53,7 +53,7 @@ export function Skills() {
                   {category.skills.map((skill) => (
                     <li
                       key={skill}
-                      className="rounded border border-border/70 bg-surface-2/50 px-2 py-1 font-mono text-[10.5px] text-foreground/80 transition-colors hover:border-primary/50 hover:text-primary"
+                      className="rounded border border-border/70 bg-surface-2/50 px-2 py-1 font-mono type-badge text-foreground/80 transition-colors hover:border-primary/50 hover:text-primary"
                     >
                       {skill}
                     </li>

@@ -9,7 +9,7 @@ export function Notes() {
       <SectionHeading
         index="08"
         eyebrow="Engineering Notes"
-        title="Writing about the systems I run."
+        title="Writing About the Systems I Run."
         description="Planned technical notes on Kubernetes, Terraform, GitOps and observability. Links will be added as each one is published."
       />
 
@@ -34,13 +34,13 @@ export function Notes() {
                     {note.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded border border-border/70 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground"
+                        className="rounded border border-border/70 px-1.5 py-0.5 font-mono type-micro text-muted-foreground"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
-                  <span className="inline-flex shrink-0 items-center gap-1 rounded border border-border/70 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
+                  <span className="inline-flex shrink-0 items-center gap-1 rounded border border-border/70 px-1.5 py-0.5 font-mono type-micro text-muted-foreground">
                     {published ? null : <Clock className="size-3" aria-hidden="true" />}
                     {note.status}
                   </span>

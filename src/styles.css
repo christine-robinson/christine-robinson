@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
@@ -99,15 +99,12 @@
   --sidebar-border: oklch(0.32 0.02 262 / 60%);
   --sidebar-ring: oklch(0.79 0.14 205 / 60%);
 
-  --gradient-accent: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--violet)
-  );
-  --glow-primary: 0 0 0 1px color-mix(in oklab, var(--primary) 25%, transparent),
+  --gradient-accent: linear-gradient(135deg, var(--primary), var(--violet));
+  --glow-primary:
+    0 0 0 1px color-mix(in oklab, var(--primary) 25%, transparent),
     0 8px 40px -12px color-mix(in oklab, var(--primary) 45%, transparent);
-  --shadow-panel: 0 1px 0 0 color-mix(in oklab, white 6%, transparent) inset,
-    0 20px 60px -30px oklch(0 0 0 / 80%);
+  --shadow-panel:
+    0 1px 0 0 color-mix(in oklab, white 6%, transparent) inset, 0 20px 60px -30px oklch(0 0 0 / 80%);
 }
 
 .dark {
@@ -129,8 +126,45 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings:
+      "cv05" 1,
+      "ss01" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  h3,
+  h4 {
+    letter-spacing: -0.012em;
+    line-height: 1.3;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  code,
+  pre,
+  kbd,
+  samp {
+    font-family: var(--font-mono);
+    font-variant-ligatures: none;
   }
 
   ::selection {
@@ -238,4 +272,26 @@
 
 @utility particle {
   animation: drift-up linear infinite;
+}
+
+/* Typographic scale for small technical labels */
+@utility type-label {
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  font-variant-ligatures: none;
+}
+
+@utility type-badge {
+  font-size: 0.6875rem;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  font-variant-ligatures: none;
+}
+
+@utility type-micro {
+  font-size: 0.625rem;
+  line-height: 1.35;
+  letter-spacing: 0.06em;
+  font-variant-ligatures: none;
 }

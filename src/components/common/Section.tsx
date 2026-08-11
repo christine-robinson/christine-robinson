@@ -35,7 +35,7 @@ export function SectionHeading({
     <Reveal className={cn("max-w-2xl", align === "center" && "mx-auto text-center")}>
       <div
         className={cn(
-          "flex items-center gap-3 font-mono text-xs tracking-[0.18em] text-primary",
+          "flex items-center gap-3 font-mono type-label text-primary",
           align === "center" && "justify-center",
         )}
       >

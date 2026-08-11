@@ -1,5 +1,5 @@
 {
-  "name": "tanstack_start_ts",
+  "name": "robinlabs",
   "private": true,
   "sideEffects": false,
   "type": "module",
@@ -9,7 +9,11 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier . --write",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
@@ -83,8 +87,10 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
     "nitro": "3.0.260603-beta",
-    "prettier": "^3.7.3",
+    "prettier": "3.9.6",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.2.0"

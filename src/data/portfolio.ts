@@ -27,7 +27,7 @@ export const profile = {
   role: "DevOps / Cloud Engineer",
   badge: "DEVOPS / CLOUD ENGINEER · 3+ YEARS",
   availability: "Open to opportunities",
-  headline: "Building reliable infrastructure for modern applications.",
+  headline: "Building Reliable Infrastructure for Modern Applications.",
   subheadline:
     "DevOps / Cloud Engineer focused on AWS, Kubernetes, Infrastructure as Code, CI/CD, GitOps, observability, and production automation.",
   experience: "3+ Years",
@@ -91,7 +91,7 @@ export const metrics: Metric[] = [
 ];
 
 export const about = {
-  title: "Engineering systems, not just deployments.",
+  title: "Engineering Systems, Not Just Deployments.",
   paragraphs: [
     "I work on the layer applications depend on: AWS accounts and networking, EKS clusters, the pipelines that ship to them, and the dashboards and alerts that tell us when something is off.",
     "Most of my day is spent making infrastructure reproducible — Terraform and Terragrunt for what AWS runs, Helm and ArgoCD for what the cluster runs, GitHub Actions for everything in between. If a change can't be reviewed in a pull request, it usually shouldn't happen.",
@@ -240,7 +240,10 @@ export const caseStudies: CaseStudy[] = [
       },
       { label: "AWS", description: "VPC, subnets, IAM, DNS, certificates and storage" },
       { label: "AWS EKS", description: "Managed control plane with private worker networking" },
-      { label: "Kubernetes workloads", description: "Services deployed as versioned Helm releases" },
+      {
+        label: "Kubernetes workloads",
+        description: "Services deployed as versioned Helm releases",
+      },
       { label: "Ingress (Kong)", description: "Routing, TLS termination and traffic policy" },
       { label: "Application", description: "The workload serving end users" },
     ],
@@ -303,7 +306,10 @@ export const caseStudies: CaseStudy[] = [
     architecture: [
       { label: "GitHub", description: "Source of truth for application code and manifests" },
       { label: "GitHub Actions", description: "Build, test and package on every change" },
-      { label: "SonarQube / Trivy", description: "Code quality gate and image vulnerability scanning" },
+      {
+        label: "SonarQube / Trivy",
+        description: "Code quality gate and image vulnerability scanning",
+      },
       { label: "Container registry", description: "Versioned, immutable images" },
       { label: "ArgoCD", description: "Continuous reconciliation from Git" },
       { label: "AWS EKS", description: "Rolling deployment into the target cluster" },
@@ -544,22 +550,58 @@ export const infraNodes: InfraNode[] = [
 ];
 
 export const toolchain: ToolchainStage[] = [
-  { stage: "Code", tools: ["GitHub"], description: "Version control, reviews and branch protection." },
-  { stage: "Build", tools: ["GitHub Actions"], description: "Reproducible builds on every commit." },
+  {
+    stage: "Code",
+    tools: ["GitHub"],
+    description: "Version control, reviews and branch protection.",
+  },
+  {
+    stage: "Build",
+    tools: ["GitHub Actions"],
+    description: "Reproducible builds on every commit.",
+  },
   { stage: "Test", tools: ["GitHub Actions"], description: "Automated checks as a release gate." },
-  { stage: "Security", tools: ["SonarQube", "Trivy"], description: "Quality gates and vulnerability scanning." },
+  {
+    stage: "Security",
+    tools: ["SonarQube", "Trivy"],
+    description: "Quality gates and vulnerability scanning.",
+  },
   { stage: "Containerize", tools: ["Docker"], description: "Minimal, immutable container images." },
-  { stage: "Deploy", tools: ["ArgoCD", "Kubernetes"], description: "GitOps reconciliation into the cluster." },
-  { stage: "Observe", tools: ["Prometheus", "Grafana", "Loki"], description: "Metrics, logs, dashboards and alerts." },
+  {
+    stage: "Deploy",
+    tools: ["ArgoCD", "Kubernetes"],
+    description: "GitOps reconciliation into the cluster.",
+  },
+  {
+    stage: "Observe",
+    tools: ["Prometheus", "Grafana", "Loki"],
+    description: "Metrics, logs, dashboards and alerts.",
+  },
 ];
 
 /** No certifications are claimed here. Update levels as they change. */
 export const learning: LearningItem[] = [
   { topic: "AWS", focus: "Networking, IAM and cost-aware architecture", level: "Hands-on" },
-  { topic: "Kubernetes", focus: "Cluster operations, scheduling and troubleshooting", level: "Hands-on" },
-  { topic: "Terraform", focus: "Module design, state strategy and drift management", level: "Hands-on" },
-  { topic: "Cloud Architecture", focus: "Reliability and multi-environment design patterns", level: "Learning" },
-  { topic: "DevOps Practices", focus: "Platform engineering and developer experience", level: "Exploring" },
+  {
+    topic: "Kubernetes",
+    focus: "Cluster operations, scheduling and troubleshooting",
+    level: "Hands-on",
+  },
+  {
+    topic: "Terraform",
+    focus: "Module design, state strategy and drift management",
+    level: "Hands-on",
+  },
+  {
+    topic: "Cloud Architecture",
+    focus: "Reliability and multi-environment design patterns",
+    level: "Learning",
+  },
+  {
+    topic: "DevOps Practices",
+    focus: "Platform engineering and developer experience",
+    level: "Exploring",
+  },
 ];
 
 /** Planned writing. Set status to "Published" and add href when live. */

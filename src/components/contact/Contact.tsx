@@ -64,7 +64,9 @@ export function Contact() {
     setErrors({});
     // No backend wired up: open the user's mail client with the message.
     const subject = encodeURIComponent(`Portfolio enquiry from ${result.data.name}`);
-    const body = encodeURIComponent(`${result.data.message}\n\n— ${result.data.name} (${result.data.email})`);
+    const body = encodeURIComponent(
+      `${result.data.message}\n\n— ${result.data.name} (${result.data.email})`,
+    );
     window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
     setSent(true);
     toast.success("Opening your email client…");
@@ -81,7 +83,7 @@ export function Contact() {
           <SectionHeading
             index="09"
             eyebrow="Contact"
-            title="Let's build reliable systems."
+            title="Let's Build Reliable Systems."
             description="Have a project, infrastructure challenge, or engineering opportunity? Let's talk."
           />
 
@@ -98,7 +100,7 @@ export function Contact() {
                   <channel.icon className="size-4" aria-hidden="true" />
                 </span>
                 <span className="min-w-0">
-                  <span className="block font-mono text-[10.5px] tracking-[0.16em] text-muted-foreground">
+                  <span className="block font-mono type-label text-muted-foreground">
                     {channel.label.toUpperCase()}
                   </span>
                   <span className="block truncate text-sm text-foreground/90 group-hover:text-primary">
@@ -113,7 +115,10 @@ export function Contact() {
         <Reveal delay={0.12}>
           <form onSubmit={handleSubmit} noValidate className="panel space-y-4 p-6 sm:p-7">
             <div>
-              <label htmlFor="name" className="mb-1.5 block font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
+              <label
+                htmlFor="name"
+                className="mb-1.5 block font-mono type-label text-muted-foreground"
+              >
                 NAME
               </label>
               <input
@@ -135,7 +140,10 @@ export function Contact() {
             </div>
 
             <div>
-              <label htmlFor="email" className="mb-1.5 block font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
+              <label
+                htmlFor="email"
+                className="mb-1.5 block font-mono type-label text-muted-foreground"
+              >
                 EMAIL
               </label>
               <input
@@ -157,7 +165,10 @@ export function Contact() {
             </div>
 
             <div>
-              <label htmlFor="message" className="mb-1.5 block font-mono text-[11px] tracking-[0.16em] text-muted-foreground">
+              <label
+                htmlFor="message"
+                className="mb-1.5 block font-mono type-label text-muted-foreground"
+              >
                 MESSAGE
               </label>
               <textarea
@@ -188,7 +199,7 @@ export function Contact() {
               )}
               Send Message
             </button>
-            <p className="text-center text-[11px] text-muted-foreground">
+            <p className="text-center type-badge text-muted-foreground">
               Submitting opens your email client — no data is stored.
             </p>
           </form>

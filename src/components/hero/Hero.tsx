@@ -24,7 +24,7 @@ export function Hero() {
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr]">
         <div>
           <motion.div initial="hidden" animate="show" custom={0} variants={fade}>
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono text-[11px] tracking-[0.16em] text-primary backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-3 py-1 font-mono type-label text-primary backdrop-blur-sm">
               {profile.badge}
             </span>
           </motion.div>
@@ -36,9 +36,8 @@ export function Hero() {
             variants={fade}
             className="mt-6 text-4xl font-semibold tracking-tight text-balance sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]"
           >
-            Building{" "}
-            <span className="text-gradient">reliable infrastructure</span> for modern
-            applications.
+            Building <span className="text-gradient">Reliable Infrastructure</span> for Modern
+            Applications.
           </motion.h1>
 
           <motion.p
@@ -60,7 +59,10 @@ export function Hero() {
           >
             <MagneticLink href="#work">
               View My Work
-              <ArrowDown className="size-4 transition-transform group-hover:translate-y-0.5" aria-hidden="true" />
+              <ArrowDown
+                className="size-4 transition-transform group-hover:translate-y-0.5"
+                aria-hidden="true"
+              />
             </MagneticLink>
             {profile.resumeAvailable ? (
               <MagneticLink href={profile.resumeUrl} variant="outline" download>
@@ -88,13 +90,7 @@ export function Hero() {
             <span className="font-mono text-xs text-muted-foreground">{profile.location}</span>
           </motion.div>
 
-          <motion.div
-            initial="hidden"
-            animate="show"
-            custom={5}
-            variants={fade}
-            className="mt-10"
-          >
+          <motion.div initial="hidden" animate="show" custom={5} variants={fade} className="mt-10">
             <TerminalPanel />
           </motion.div>
         </div>

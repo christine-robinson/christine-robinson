@@ -16,7 +16,7 @@ export function Learning() {
       <SectionHeading
         index="07"
         eyebrow="Learning & Continuous Improvement"
-        title="Areas I keep deepening."
+        title="Areas I Keep Deepening."
         description="Current focus areas rather than credentials — update these as certifications are completed."
       />
 
@@ -29,7 +29,7 @@ export function Learning() {
               <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{item.focus}</p>
               <span
                 className={cn(
-                  "mt-4 inline-block rounded border px-2 py-0.5 font-mono text-[10px]",
+                  "mt-4 inline-block rounded border px-2 py-0.5 font-mono type-micro",
                   LEVEL_STYLES[item.level],
                 )}
               >

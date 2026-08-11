@@ -35,7 +35,7 @@ export function About() {
               <StaggerItem key={m.label}>
                 <div className="panel h-full p-4 transition-colors hover:border-primary/40">
                   <p className="text-xl font-semibold tracking-tight text-primary">{m.value}</p>
-                  <p className="mt-1 font-mono text-[11px] tracking-wide text-muted-foreground">
+                  <p className="mt-1 font-mono type-badge tracking-wide text-muted-foreground">
                     {m.label}
                   </p>
                 </div>

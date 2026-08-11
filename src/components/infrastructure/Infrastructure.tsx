@@ -87,7 +87,7 @@ export function Infrastructure() {
     [],
   );
 
-  const activeNode = focused ? infraNodes.find((n) => n.id === focused) ?? null : null;
+  const activeNode = focused ? (infraNodes.find((n) => n.id === focused) ?? null) : null;
   const related = new Set(activeNode?.connects ?? []);
 
   const stateFor = (id: string): "idle" | "active" | "related" | "dimmed" => {
@@ -104,7 +104,7 @@ export function Infrastructure() {
       <SectionHeading
         index="05"
         eyebrow="Infrastructure"
-        title="How a commit becomes production traffic."
+        title="How a Commit Becomes Production Traffic."
         description="Hover or focus any component to highlight what it connects to. The delivery path runs down the centre, with cluster platform components and AWS infrastructure around it."
       />
 
@@ -114,7 +114,7 @@ export function Infrastructure() {
 
           <div className="relative grid gap-8 lg:grid-cols-[220px_minmax(0,1fr)_220px]">
             <div className="order-2 lg:order-1">
-              <p className="font-mono text-[11px] tracking-[0.18em] text-violet">AWS Infrastructure</p>
+              <p className="font-mono type-label text-violet">AWS Infrastructure</p>
               <div className="mt-5 grid grid-cols-2 gap-2 lg:grid-cols-1">
                 {byColumn.aws.map((node) => (
                   <Node
@@ -130,7 +130,7 @@ export function Infrastructure() {
             </div>
 
             <div className="order-1 lg:order-2">
-              <p className="font-mono text-[11px] tracking-[0.18em] text-primary">Delivery Path</p>
+              <p className="font-mono type-label text-primary">Delivery Path</p>
               <ol className="mt-5">
                 {delivery.map((node, i) => {
                   const next = delivery[i + 1];
@@ -156,9 +156,7 @@ export function Infrastructure() {
             </div>
 
             <div className="order-3">
-              <p className="font-mono text-[11px] tracking-[0.18em] text-success">
-                Cluster Platform
-              </p>
+              <p className="font-mono type-label text-success">Cluster Platform</p>
               <div className="mt-5 grid grid-cols-2 gap-2 lg:grid-cols-1">
                 {byColumn.platform.map((node) => (
                   <Node
@@ -186,7 +184,7 @@ export function Infrastructure() {
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                   {activeNode.tooltip}
                 </p>
-                <p className="mt-2 font-mono text-[10.5px] text-muted-foreground">
+                <p className="mt-2 font-mono type-badge text-muted-foreground">
                   Connected to:{" "}
                   {activeNode.connects
                     .map((id) => infraNodes.find((n) => n.id === id)?.label ?? id)

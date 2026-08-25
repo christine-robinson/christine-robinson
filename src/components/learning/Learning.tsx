@@ -16,7 +16,7 @@ export function Learning() {
       <SectionHeading
         index="07"
         eyebrow="Learning & Continuous Improvement"
-        title="Areas I Keep Deepening."
+        title="Areas I Keep Deepening"
         description="Current focus areas rather than credentials — update these as certifications are completed."
       />
 
@@ -25,8 +25,12 @@ export function Learning() {
           <StaggerItem key={item.topic} className="h-full">
             <article className="panel h-full p-5 transition-colors hover:border-primary/40">
               <BookOpen className="size-4 text-primary" aria-hidden="true" />
-              <h3 className="mt-3 text-sm font-medium leading-snug">{item.topic}</h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{item.focus}</p>
+              <h3 className="mt-3 text-sm font-medium leading-snug">
+                {item.topic}
+              </h3>
+              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                {item.focus}
+              </p>
               <span
                 className={cn(
                   "mt-4 inline-block rounded border px-2 py-0.5 font-mono type-micro",

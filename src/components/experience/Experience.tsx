@@ -9,7 +9,7 @@ export function Experience() {
       <SectionHeading
         index="02"
         eyebrow="Experience"
-        title="Three Years of Production Infrastructure Work."
+        title="3+ Years of Production Infrastructure Work"
         description="Roles, scope and the engineering areas each one covered."
       />
 
@@ -19,17 +19,24 @@ export function Experience() {
             <span
               aria-hidden="true"
               className={`absolute -left-[1.65rem] top-7 size-2.5 rounded-full sm:-left-[2.9rem] ${
-                role.current ? "status-dot bg-primary" : "bg-muted-foreground/60"
+                role.current
+                  ? "status-dot bg-primary"
+                  : "bg-muted-foreground/60"
               }`}
             />
             <Reveal delay={i * 0.05}>
               <article className="panel p-6 transition-colors hover:border-primary/35 sm:p-7">
                 <header className="flex flex-wrap items-start justify-between gap-3">
                   <div>
-                    <h3 className="text-lg font-semibold tracking-tight sm:text-xl">{role.role}</h3>
+                    <h3 className="text-lg font-semibold tracking-tight sm:text-xl">
+                      {role.role}
+                    </h3>
                     <p className="mt-1.5 flex flex-wrap items-center gap-x-4 gap-y-1 font-mono text-xs text-muted-foreground">
                       <span className="inline-flex items-center gap-1.5">
-                        <Building2 className="size-3.5 text-primary" aria-hidden="true" />
+                        <Building2
+                          className="size-3.5 text-primary"
+                          aria-hidden="true"
+                        />
                         {role.company}
                       </span>
                       <span className="inline-flex items-center gap-1.5">
@@ -43,9 +50,13 @@ export function Experience() {
                   </span>
                 </header>
 
-                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{role.summary}</p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                  {role.summary}
+                </p>
 
-                <h4 className="mt-6 font-mono type-label text-primary">Impact</h4>
+                <h4 className="mt-6 font-mono type-label text-primary">
+                  Impact
+                </h4>
                 <ul className="mt-2.5 space-y-2">
                   {role.impact.map((item) => (
                     <li
@@ -61,7 +72,9 @@ export function Experience() {
                   ))}
                 </ul>
 
-                <h4 className="mt-6 font-mono type-label text-muted-foreground">Technology</h4>
+                <h4 className="mt-6 font-mono type-label text-muted-foreground">
+                  Technology
+                </h4>
                 <div className="mt-2.5 flex flex-wrap gap-1.5">
                   {role.technologies.map((tech) => (
                     <span

@@ -23,21 +23,21 @@ import type {
 
 export const profile = {
   name: "Christine Robinson S",
-  brand: "christine.dev",
+  brand: "robin.dev",
   role: "DevOps / Cloud Engineer",
   badge: "DEVOPS / CLOUD ENGINEER · 3+ YEARS",
   availability: "Open to opportunities",
-  headline: "Building Reliable Infrastructure for Modern Applications.",
+  headline: "Building Reliable Infrastructure for Modern Applications",
   subheadline:
-    "DevOps / Cloud Engineer focused on AWS, Kubernetes, Infrastructure as Code, CI/CD, GitOps, observability, and production automation.",
+    "DevOps / Cloud Engineer focused on AWS, Kubernetes, Infrastructure as Code, CI/CD, GitOps, observability, and production automation",
   experience: "3+ Years",
   location: "Bengaluru, India",
   email: "christinerobinson.dev@gmail.com",
   github: "https://github.com/christine-robinson",
   linkedin: "https://www.linkedin.com/in/christine-robinson-s/",
   /** Place resume.pdf in /public and flip this to true. */
-  resumeUrl: "/resume.pdf",
-  resumeAvailable: false,
+  resumeUrl: "/christine_robinson_resume.pdf",
+  resumeAvailable: true,
 };
 
 export const navItems: NavItem[] = [
@@ -91,7 +91,7 @@ export const metrics: Metric[] = [
 ];
 
 export const about = {
-  title: "Engineering Systems, Not Just Deployments.",
+  title: "Engineering Systems, Not Just Deployments",
   paragraphs: [
     "I work on the layer applications depend on: AWS accounts and networking, EKS clusters, the pipelines that ship to them, and the dashboards and alerts that tell us when something is off.",
     "Most of my day is spent making infrastructure reproducible — Terraform and Terragrunt for what AWS runs, Helm and ArgoCD for what the cluster runs, GitHub Actions for everything in between. If a change can't be reviewed in a pull request, it usually shouldn't happen.",
@@ -112,7 +112,7 @@ export const about = {
 /** Verified career history. Refine individual bullets freely. */
 export const experience: ExperienceItem[] = [
   {
-    role: "Senior DevOps Engineer",
+    role: "DevOps Engineer",
     company: "Signeasy",
     location: "Bengaluru, India",
     period: "July 2025 – Present",
@@ -173,13 +173,30 @@ export const skillCategories: SkillCategory[] = [
     name: "Cloud",
     description: "AWS infrastructure design and day-to-day operations",
     icon: "cloud",
-    skills: ["AWS", "EKS", "EC2", "S3", "CloudFront", "Route53", "ACM", "EBS", "EFS"],
+    skills: [
+      "AWS",
+      "EKS",
+      "EC2",
+      "S3",
+      "CloudFront",
+      "Route53",
+      "ACM",
+      "EBS",
+      "EFS",
+    ],
   },
   {
     name: "Containers & Orchestration",
     description: "Packaging, scheduling and scaling workloads",
     icon: "box",
-    skills: ["Docker", "Kubernetes", "Helm", "Karpenter", "Cluster Autoscaler", "Kong"],
+    skills: [
+      "Docker",
+      "Kubernetes",
+      "Helm",
+      "Karpenter",
+      "Cluster Autoscaler",
+      "Kong",
+    ],
   },
   {
     name: "Infrastructure as Code",
@@ -238,13 +255,22 @@ export const caseStudies: CaseStudy[] = [
         label: "Terraform / Terragrunt",
         description: "Environment-scoped modules with isolated state",
       },
-      { label: "AWS", description: "VPC, subnets, IAM, DNS, certificates and storage" },
-      { label: "AWS EKS", description: "Managed control plane with private worker networking" },
+      {
+        label: "AWS",
+        description: "VPC, subnets, IAM, DNS, certificates and storage",
+      },
+      {
+        label: "AWS EKS",
+        description: "Managed control plane with private worker networking",
+      },
       {
         label: "Kubernetes workloads",
         description: "Services deployed as versioned Helm releases",
       },
-      { label: "Ingress (Kong)", description: "Routing, TLS termination and traffic policy" },
+      {
+        label: "Ingress (Kong)",
+        description: "Routing, TLS termination and traffic policy",
+      },
       { label: "Application", description: "The workload serving end users" },
     ],
     flows: [
@@ -298,21 +324,34 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "gitops-delivery",
     title: "GitOps Delivery Pipeline",
-    tagline: "Commit to cluster through automated build, quality and security gates.",
+    tagline:
+      "Commit to cluster through automated build, quality and security gates.",
     problem:
       "Releases depended on manual steps and local tooling, which made them slow to repeat and inconsistent between environments.",
     approach:
       "Implemented a pipeline where GitHub Actions builds and tests each change, SonarQube and Trivy gate quality and vulnerabilities, images are published to a registry, and ArgoCD reconciles the declared state into the cluster.",
     architecture: [
-      { label: "GitHub", description: "Source of truth for application code and manifests" },
-      { label: "GitHub Actions", description: "Build, test and package on every change" },
+      {
+        label: "GitHub",
+        description: "Source of truth for application code and manifests",
+      },
+      {
+        label: "GitHub Actions",
+        description: "Build, test and package on every change",
+      },
       {
         label: "SonarQube / Trivy",
         description: "Code quality gate and image vulnerability scanning",
       },
-      { label: "Container registry", description: "Versioned, immutable images" },
+      {
+        label: "Container registry",
+        description: "Versioned, immutable images",
+      },
       { label: "ArgoCD", description: "Continuous reconciliation from Git" },
-      { label: "AWS EKS", description: "Rolling deployment into the target cluster" },
+      {
+        label: "AWS EKS",
+        description: "Rolling deployment into the target cluster",
+      },
     ],
     decisions: [
       "Pull-based delivery so cluster credentials never live in CI",
@@ -335,17 +374,27 @@ export const caseStudies: CaseStudy[] = [
   {
     id: "iac-automation",
     title: "Infrastructure as Code Automation",
-    tagline: "Standardised AWS environments composed from reusable Terraform modules.",
+    tagline:
+      "Standardised AWS environments composed from reusable Terraform modules.",
     problem:
       "Environments drifted apart because pieces of infrastructure were created by hand at different times by different people.",
     approach:
       "Standardised networking, compute, identity, storage, DNS and delivery into reusable Terraform modules, composed per environment with Terragrunt and reviewed through plan output on every pull request.",
     architecture: [
-      { label: "VPC", description: "Multi-AZ networking with public and private subnet tiers" },
+      {
+        label: "VPC",
+        description: "Multi-AZ networking with public and private subnet tiers",
+      },
       { label: "EKS", description: "Cluster module with managed add-ons" },
       { label: "IAM", description: "Scoped roles and IRSA bindings" },
-      { label: "S3 / EBS / EFS", description: "Object, block and shared file storage" },
-      { label: "CloudFront / Route53 / ACM", description: "Edge delivery, DNS and certificates" },
+      {
+        label: "S3 / EBS / EFS",
+        description: "Object, block and shared file storage",
+      },
+      {
+        label: "CloudFront / Route53 / ACM",
+        description: "Edge delivery, DNS and certificates",
+      },
     ],
     decisions: [
       "Versioned modules so environments upgrade deliberately",
@@ -355,21 +404,42 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome:
       "New environments are composed from known-good modules, and infrastructure changes are reviewed the same way application changes are.",
-    technologies: ["Terraform", "Terragrunt", "AWS", "IAM", "Route53", "CloudFront", "S3"],
+    technologies: [
+      "Terraform",
+      "Terragrunt",
+      "AWS",
+      "IAM",
+      "Route53",
+      "CloudFront",
+      "S3",
+    ],
   },
   {
     id: "observability",
     title: "Observability for Kubernetes Workloads",
-    tagline: "Metrics, logs and dashboards available by default for every service.",
+    tagline:
+      "Metrics, logs and dashboards available by default for every service.",
     problem:
       "Debugging production issues meant checking individual pods and scattered logs, which slowed down troubleshooting.",
     approach:
       "Deployed Prometheus, Grafana and Loki with Helm, wired workloads into metric scraping and log shipping, and built shared dashboards and alerts around service behaviour.",
     architecture: [
-      { label: "Prometheus", description: "Scrapes cluster and workload metrics" },
-      { label: "Loki", description: "Aggregates container logs with label-based queries" },
-      { label: "Grafana", description: "Shared dashboards for metrics and logs" },
-      { label: "Alerting", description: "Routing by severity and service ownership" },
+      {
+        label: "Prometheus",
+        description: "Scrapes cluster and workload metrics",
+      },
+      {
+        label: "Loki",
+        description: "Aggregates container logs with label-based queries",
+      },
+      {
+        label: "Grafana",
+        description: "Shared dashboards for metrics and logs",
+      },
+      {
+        label: "Alerting",
+        description: "Routing by severity and service ownership",
+      },
     ],
     decisions: [
       "Alert on user-visible symptoms rather than raw resource noise",
@@ -389,7 +459,8 @@ export const infraNodes: InfraNode[] = [
   {
     id: "developer",
     label: "Developer",
-    tooltip: "Writes code and opens a pull request — the entry point to every change.",
+    tooltip:
+      "Writes code and opens a pull request — the entry point to every change.",
     column: "delivery",
     connects: ["github"],
   },
@@ -515,7 +586,8 @@ export const infraNodes: InfraNode[] = [
   {
     id: "alb",
     label: "ALB",
-    tooltip: "Distributes inbound traffic to the ingress gateway and terminates TLS.",
+    tooltip:
+      "Distributes inbound traffic to the ingress gateway and terminates TLS.",
     column: "aws",
     connects: ["kong", "route53", "vpc", "users"],
   },
@@ -560,13 +632,21 @@ export const toolchain: ToolchainStage[] = [
     tools: ["GitHub Actions"],
     description: "Reproducible builds on every commit.",
   },
-  { stage: "Test", tools: ["GitHub Actions"], description: "Automated checks as a release gate." },
+  {
+    stage: "Test",
+    tools: ["GitHub Actions"],
+    description: "Automated checks as a release gate.",
+  },
   {
     stage: "Security",
     tools: ["SonarQube", "Trivy"],
     description: "Quality gates and vulnerability scanning.",
   },
-  { stage: "Containerize", tools: ["Docker"], description: "Minimal, immutable container images." },
+  {
+    stage: "Containerize",
+    tools: ["Docker"],
+    description: "Minimal, immutable container images.",
+  },
   {
     stage: "Deploy",
     tools: ["ArgoCD", "Kubernetes"],
@@ -581,7 +661,11 @@ export const toolchain: ToolchainStage[] = [
 
 /** No certifications are claimed here. Update levels as they change. */
 export const learning: LearningItem[] = [
-  { topic: "AWS", focus: "Networking, IAM and cost-aware architecture", level: "Hands-on" },
+  {
+    topic: "AWS",
+    focus: "Networking, IAM and cost-aware architecture",
+    level: "Hands-on",
+  },
   {
     topic: "Kubernetes",
     focus: "Cluster operations, scheduling and troubleshooting",
@@ -608,37 +692,43 @@ export const learning: LearningItem[] = [
 export const notes: Note[] = [
   {
     title: "Kubernetes in Production",
-    excerpt: "What actually breaks in production clusters, and the guardrails that prevent it.",
+    excerpt:
+      "What actually breaks in production clusters, and the guardrails that prevent it.",
     tags: ["Kubernetes", "Reliability"],
     status: "Coming soon",
   },
   {
     title: "Terraform Module Boundaries",
-    excerpt: "Where to split modules, how to isolate state, and review workflows that scale.",
+    excerpt:
+      "Where to split modules, how to isolate state, and review workflows that scale.",
     tags: ["Terraform", "IaC"],
     status: "Coming soon",
   },
   {
     title: "Pull-based GitOps Delivery",
-    excerpt: "Why the cluster should pull from Git instead of CI pushing credentials around.",
+    excerpt:
+      "Why the cluster should pull from Git instead of CI pushing credentials around.",
     tags: ["GitOps", "ArgoCD"],
     status: "Coming soon",
   },
   {
     title: "Scaling Nodes with Karpenter",
-    excerpt: "Provisioning and consolidation behaviour, and what to watch when tuning it.",
+    excerpt:
+      "Provisioning and consolidation behaviour, and what to watch when tuning it.",
     tags: ["Kubernetes", "AWS"],
     status: "Coming soon",
   },
   {
     title: "Observability Worth Paging For",
-    excerpt: "Designing metrics and alerts around symptoms instead of dashboards nobody reads.",
+    excerpt:
+      "Designing metrics and alerts around symptoms instead of dashboards nobody reads.",
     tags: ["Prometheus", "Grafana"],
     status: "Coming soon",
   },
   {
     title: "Security Gates in CI",
-    excerpt: "Adding scanning to pipelines without turning delivery into a bottleneck.",
+    excerpt:
+      "Adding scanning to pipelines without turning delivery into a bottleneck.",
     tags: ["Security", "CI/CD"],
     status: "Coming soon",
   },

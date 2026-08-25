@@ -9,7 +9,7 @@ export function Notes() {
       <SectionHeading
         index="08"
         eyebrow="Engineering Notes"
-        title="Writing About the Systems I Run."
+        title="Writing About the Systems I Run"
         description="Planned technical notes on Kubernetes, Terraform, GitOps and observability. Links will be added as each one is published."
       />
 
@@ -21,11 +21,17 @@ export function Notes() {
             <StaggerItem key={note.title} className="h-full">
               <Wrapper
                 {...(published
-                  ? { href: note.href, target: "_blank", rel: "noreferrer noopener" }
+                  ? {
+                      href: note.href,
+                      target: "_blank",
+                      rel: "noreferrer noopener",
+                    }
                   : {})}
                 className="panel group flex h-full flex-col p-5 transition-all duration-300 hover:border-primary/40"
               >
-                <h3 className="text-sm font-medium leading-snug">{note.title}</h3>
+                <h3 className="text-sm font-medium leading-snug">
+                  {note.title}
+                </h3>
                 <p className="mt-2.5 text-xs leading-relaxed text-muted-foreground">
                   {note.excerpt}
                 </p>
@@ -41,7 +47,9 @@ export function Notes() {
                     ))}
                   </div>
                   <span className="inline-flex shrink-0 items-center gap-1 rounded border border-border/70 px-1.5 py-0.5 font-mono type-micro text-muted-foreground">
-                    {published ? null : <Clock className="size-3" aria-hidden="true" />}
+                    {published ? null : (
+                      <Clock className="size-3" aria-hidden="true" />
+                    )}
                     {note.status}
                   </span>
                 </div>

@@ -16,7 +16,10 @@ function FlowChain({ steps }: { steps: string[] }) {
             {step}
           </span>
           {i < steps.length - 1 ? (
-            <span aria-hidden="true" className="font-mono type-micro text-muted-foreground">
+            <span
+              aria-hidden="true"
+              className="font-mono type-micro text-muted-foreground"
+            >
               →
             </span>
           ) : null}
@@ -30,14 +33,22 @@ function Details({ study }: { study: CaseStudy }) {
   return (
     <div className="mt-5 space-y-5 rounded-md border border-border bg-background/50 p-4">
       <div>
-        <p className="font-mono type-label text-muted-foreground">Architecture</p>
+        <p className="font-mono type-label text-muted-foreground">
+          Architecture
+        </p>
         <ol className="mt-3 space-y-2">
           {study.architecture.map((node, i) => (
             <li key={node.label} className="flex gap-3">
               <div className="flex flex-col items-center">
-                <span className="mt-1.5 size-1.5 rounded-full bg-primary" aria-hidden="true" />
+                <span
+                  className="mt-1.5 size-1.5 rounded-full bg-primary"
+                  aria-hidden="true"
+                />
                 {i < study.architecture.length - 1 ? (
-                  <span className="my-1 w-px flex-1 bg-primary/25" aria-hidden="true" />
+                  <span
+                    className="my-1 w-px flex-1 bg-primary/25"
+                    aria-hidden="true"
+                  />
                 ) : null}
               </div>
               <div className="pb-2">
@@ -55,7 +66,9 @@ function Details({ study }: { study: CaseStudy }) {
         <div className="space-y-3">
           {study.flows.map((flow) => (
             <div key={flow.title}>
-              <p className="font-mono type-label text-muted-foreground">{flow.title}</p>
+              <p className="font-mono type-label text-muted-foreground">
+                {flow.title}
+              </p>
               <div className="mt-2">
                 <FlowChain steps={flow.steps} />
               </div>
@@ -65,10 +78,15 @@ function Details({ study }: { study: CaseStudy }) {
       ) : null}
 
       <div>
-        <p className="font-mono type-label text-violet">Engineering decisions</p>
+        <p className="font-mono type-label text-violet">
+          Engineering decisions
+        </p>
         <ul className="mt-2.5 space-y-1.5">
           {study.decisions.map((d) => (
-            <li key={d} className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground">
+            <li
+              key={d}
+              className="flex gap-2.5 text-xs leading-relaxed text-muted-foreground"
+            >
               <span
                 className="mt-1.5 size-1 shrink-0 rounded-full bg-violet/70"
                 aria-hidden="true"
@@ -81,7 +99,9 @@ function Details({ study }: { study: CaseStudy }) {
 
       <div>
         <p className="font-mono type-label text-success">Outcome</p>
-        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{study.outcome}</p>
+        <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+          {study.outcome}
+        </p>
       </div>
     </div>
   );
@@ -98,17 +118,25 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
           <p className="font-mono type-badge text-muted-foreground">
             {String(index + 1).padStart(2, "0")}
           </p>
-          <h3 className="mt-2 text-lg font-semibold tracking-tight">{study.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{study.tagline}</p>
+          <h3 className="mt-2 text-lg font-semibold tracking-tight">
+            {study.title}
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            {study.tagline}
+          </p>
 
           <dl className="mt-5 space-y-3 text-sm">
             <div>
               <dt className="font-mono type-label text-violet">Problem</dt>
-              <dd className="mt-1 leading-relaxed text-muted-foreground">{study.problem}</dd>
+              <dd className="mt-1 leading-relaxed text-muted-foreground">
+                {study.problem}
+              </dd>
             </div>
             <div>
               <dt className="font-mono type-label text-primary">Approach</dt>
-              <dd className="mt-1 leading-relaxed text-muted-foreground">{study.approach}</dd>
+              <dd className="mt-1 leading-relaxed text-muted-foreground">
+                {study.approach}
+              </dd>
             </div>
           </dl>
 
@@ -165,7 +193,7 @@ export function Work() {
       <SectionHeading
         index="04"
         eyebrow="Selected Engineering Work"
-        title="Case Studies from Production Infrastructure."
+        title="Case Studies from Production Infrastructure"
         description="Engineering case studies based on infrastructure, DevOps and cloud work — the problem, the approach taken, and how the system was put together."
       />
 

@@ -1,5 +1,12 @@
 import { useState, type FormEvent } from "react";
-import { Github, Linkedin, Mail, FileText, Send, CheckCircle2 } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  FileText,
+  Send,
+  CheckCircle2,
+} from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { profile } from "@/data/portfolio";
@@ -8,7 +15,11 @@ import { Section, SectionHeading } from "@/components/common/Section";
 import { cn } from "@/lib/utils";
 
 const contactSchema = z.object({
-  name: z.string().trim().min(1, "Please enter your name").max(100, "Name is too long"),
+  name: z
+    .string()
+    .trim()
+    .min(1, "Please enter your name")
+    .max(100, "Name is too long"),
   email: z
     .string()
     .trim()
@@ -25,17 +36,40 @@ const contactSchema = z.object({
 type Errors = Partial<Record<"name" | "email" | "message", string>>;
 
 const CHANNELS = [
-  { label: "Email", value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
+  {
+    label: "Email",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+    icon: Mail,
+  },
   profile.linkedin
-    ? { label: "LinkedIn", value: "Connect on LinkedIn", href: profile.linkedin, icon: Linkedin }
+    ? {
+        label: "LinkedIn",
+        value: "Connect on LinkedIn",
+        href: profile.linkedin,
+        icon: Linkedin,
+      }
     : null,
   profile.github
-    ? { label: "GitHub", value: "See the code", href: profile.github, icon: Github }
+    ? {
+        label: "GitHub",
+        value: "See the code",
+        href: profile.github,
+        icon: Github,
+      }
     : null,
   profile.resumeAvailable
-    ? { label: "Resume", value: "Download PDF", href: profile.resumeUrl, icon: FileText }
+    ? {
+        label: "Resume",
+        value: "Download PDF",
+        href: profile.resumeUrl,
+        icon: FileText,
+      }
     : null,
-].filter((c): c is { label: string; value: string; href: string; icon: typeof Mail } => c !== null);
+].filter(
+  (c): c is { label: string; value: string; href: string; icon: typeof Mail } =>
+    c !== null,
+);
 
 export function Contact() {
   const [errors, setErrors] = useState<Errors>({});
@@ -63,7 +97,9 @@ export function Contact() {
 
     setErrors({});
     // No backend wired up: open the user's mail client with the message.
-    const subject = encodeURIComponent(`Portfolio enquiry from ${result.data.name}`);
+    const subject = encodeURIComponent(
+      `Portfolio enquiry from ${result.data.name}`,
+    );
     const body = encodeURIComponent(
       `${result.data.message}\n\n— ${result.data.name} (${result.data.email})`,
     );
@@ -83,7 +119,7 @@ export function Contact() {
           <SectionHeading
             index="09"
             eyebrow="Contact"
-            title="Let's Build Reliable Systems."
+            title="Let's Build Reliable Systems"
             description="Have a project, infrastructure challenge, or engineering opportunity? Let's talk."
           />
 
@@ -92,7 +128,9 @@ export function Contact() {
               <a
                 key={channel.label}
                 href={channel.href}
-                target={channel.href.startsWith("mailto:") ? undefined : "_blank"}
+                target={
+                  channel.href.startsWith("mailto:") ? undefined : "_blank"
+                }
                 rel="noreferrer noopener"
                 className="panel group flex items-center gap-3 p-4 transition-colors hover:border-primary/40"
               >
@@ -113,7 +151,11 @@ export function Contact() {
         </div>
 
         <Reveal delay={0.12}>
-          <form onSubmit={handleSubmit} noValidate className="panel space-y-4 p-6 sm:p-7">
+          <form
+            onSubmit={handleSubmit}
+            noValidate
+            className="panel space-y-4 p-6 sm:p-7"
+          >
             <div>
               <label
                 htmlFor="name"
@@ -130,10 +172,17 @@ export function Contact() {
                 placeholder="Your name"
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? "name-error" : undefined}
-                className={cn(fieldClass, errors.name && "border-destructive/70")}
+                className={cn(
+                  fieldClass,
+                  errors.name && "border-destructive/70",
+                )}
               />
               {errors.name ? (
-                <p id="name-error" role="alert" className="mt-1.5 text-xs text-destructive">
+                <p
+                  id="name-error"
+                  role="alert"
+                  className="mt-1.5 text-xs text-destructive"
+                >
                   {errors.name}
                 </p>
               ) : null}
@@ -155,10 +204,17 @@ export function Contact() {
                 placeholder="you@company.com"
                 aria-invalid={Boolean(errors.email)}
                 aria-describedby={errors.email ? "email-error" : undefined}
-                className={cn(fieldClass, errors.email && "border-destructive/70")}
+                className={cn(
+                  fieldClass,
+                  errors.email && "border-destructive/70",
+                )}
               />
               {errors.email ? (
-                <p id="email-error" role="alert" className="mt-1.5 text-xs text-destructive">
+                <p
+                  id="email-error"
+                  role="alert"
+                  className="mt-1.5 text-xs text-destructive"
+                >
                   {errors.email}
                 </p>
               ) : null}
@@ -179,10 +235,18 @@ export function Contact() {
                 placeholder="Tell me about the infrastructure challenge you're working on."
                 aria-invalid={Boolean(errors.message)}
                 aria-describedby={errors.message ? "message-error" : undefined}
-                className={cn(fieldClass, "resize-none", errors.message && "border-destructive/70")}
+                className={cn(
+                  fieldClass,
+                  "resize-none",
+                  errors.message && "border-destructive/70",
+                )}
               />
               {errors.message ? (
-                <p id="message-error" role="alert" className="mt-1.5 text-xs text-destructive">
+                <p
+                  id="message-error"
+                  role="alert"
+                  className="mt-1.5 text-xs text-destructive"
+                >
                   {errors.message}
                 </p>
               ) : null}

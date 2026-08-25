@@ -30,11 +30,14 @@ export function Skills() {
       <SectionHeading
         index="03"
         eyebrow="Skills"
-        title="The Stack I Build and Operate With."
+        title="The Stack I Build and Operate With"
         description="A working ecosystem of tools — cloud, orchestration, automation, delivery, observability and security."
       />
 
-      <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.05}>
+      <Stagger
+        className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+        stagger={0.05}
+      >
         {skillCategories.map((category) => {
           const Icon = ICONS[category.icon] ?? Box;
           return (
@@ -44,7 +47,9 @@ export function Skills() {
                   <span className="rounded-md border border-border bg-background/60 p-2 text-primary transition-colors group-hover:border-primary/40">
                     <Icon className="size-4" aria-hidden="true" />
                   </span>
-                  <h3 className="text-sm font-medium tracking-tight">{category.name}</h3>
+                  <h3 className="text-sm font-medium tracking-tight">
+                    {category.name}
+                  </h3>
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
                   {category.description}

@@ -1,2 +1,2 @@
-# Ignore artifacts:
-.next
+node_modules/
+dist/
